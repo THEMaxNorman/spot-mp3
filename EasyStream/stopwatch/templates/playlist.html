@@ -1,0 +1,39 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{%block style%}
+<style>
+div.inline { float:left; }
+input[type=text] {
+    box-sizing: border-box;
+    background-color: blueviolet;
+    border-color: black;
+    color: black;
+    border: 10px;
+}
+</style>
+{%endblock%}
+{%block content%}
+
+<div id = 'scoreboardMain' class="h1">
+    
+    <div  id = 'name' style = "background-color: aliceblue;"><p>{{string}}</p></div> 
+    <a href = "/media/{{string}}.zip"><button >Download the Playlist: {{string}}</button></a>
+    
+    
+
+</div>
+
+<br>
+<br>
+
+
+
+
+
+
+
+{%endblock%}

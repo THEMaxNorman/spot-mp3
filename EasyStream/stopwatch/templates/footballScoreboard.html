@@ -1,0 +1,52 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{%block style%}
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+div {
+  height: 12.5vw;
+  width: 12.5vw;
+  background: tomato;
+  border: solid black 2px;
+  display: inline-block;
+  text-align: center;
+  line-height: 12.5vw;
+  font-size: 1vw;
+color: white;
+  margin-right: -4px;
+  position: relative;
+}
+/*demo only*/
+
+div:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
+  background: rgba(200, 200, 200, 0.6);
+  transition: all 0.4s;
+}
+div:hover:before {
+  background: rgba(200, 200, 200, 0);
+}
+</style>
+{%endblock%}
+{%block content%}
+<body>
+    {%for x in list%}
+    <div style = "background-color: {{x.1.profile.color}}">{{x.1}}</div>
+    {%endfor%}
+    
+<a href="/logout">Logout</a>
+</body>
+{%endblock%}
+

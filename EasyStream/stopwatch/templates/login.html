@@ -1,0 +1,102 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{%block style%}
+<style>
+body {
+    background: rgba(88,86,85,1);
+
+}
+.center {
+     background: rgba(88,86,85,1);
+}
+input[type=text] {
+    box-sizing: border-box;
+    background-color: #494949;
+    color: #35fe4b;
+    border: 2px solid #35fe4b;
+}
+input[type=password] {
+    box-sizing: border-box;
+    background-color: #494949;
+    color: #35fe4b;
+    border: 2px solid #35fe4b;
+}
+    
+    .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #35fe4b;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+{%endblock%}
+{% block content %}
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class = 'card text-center body center'>
+  <h2>Log in</h2>
+  {% if form.errors %}
+    <p style="color: red">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}<br>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {% if field.help_text %}
+          <p><small style="color: grey">{{ field.help_text }}</small></p>
+        {% endif %}
+      </p>
+    {% endfor %}
+    <button class="button" type = "submit" style="vertical-align:middle"><span>Login </span></button>
+    
+  </form>
+    <a style="color: #35fe4b" href="{% url 'signup' %}">Dont have an account? Sign up here!</a>
+  </div>
+</body>
+{% endblock %}

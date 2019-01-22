@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{%block content%}
+
+<ul class="list-group list-group-flush">
+{% for ser in end %}
+<li class="list-group-item well"></strong><a href = /scoreboard>{{ser}}</a></li>
+{% endfor %}
+</ul>
+
+{%endblock%}
